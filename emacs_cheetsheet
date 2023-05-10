@@ -1,0 +1,64 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+Major Mode
+Each buffer can only have one major mode at a time
+Emacs changes its behavior based on what type of contents the current buffer has
+(C, Java, Scheme, LaTex?)
+
+Minor Mode
+It provides additional features or change functionality.
+E.g. Flyspell minor mode provides spell checking as you type.
+
+Cancel c-g
+
+Search and Replace M-x replace-string
+Prompt each potential replacement as to whether or not you want to replace it M-x query-replace
+
+c-s or c-s twice to resume previous searching
+
+company?
+(require 'company)
+(require 'company-rtags)
+(global-company-mode)
+(add-to-list 'company-backends 'company-c-headers)
+
+comment all?
+
+Jump to def?
+etags
+M-. down
+M-, up
+
+How to bind keys?
+e.g. (global-set-key (kbd "C-c C-v") 'compile)
+
+Persist Key binding configuration
+
+
+start of buffer? M-<
+end of buffer? M->
+
+Macro?
+
+Congiration?
+Elisp
+; means comments
+
+functions are called with a parenthesis before their name
+set a variable with setq function
+t = true, nil = false
+e.g. (setq line-number-mode t)
+
+
+add-hook "the mode to hook into" "what to do"
+Have Emacs perform some function when it opens a buffer in a particular mode via a mode hook
+
+E.g. Enable flyspell mode and immediately spell check the entire buffer whenever you open a buffer in LaTex mode:
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'latex-mode-hook 'flyspell-buffer)
+
+Melpa, a package archive using the "package" package
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
